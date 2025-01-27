@@ -6,53 +6,6 @@ function App() {
   const localQuests = JSON.parse(window.localStorage.getItem("quests")) || [];
   const [quests, setQuests] = useState(localQuests);
 
-  const concludedQuests = quests.filter(
-    (quest) => quest.status === "concluído"
-  );
-  const notConcludedQuests = quests.filter(
-    (quest) => quest.status === "aberto"
-  );
-
-  function saveEditQuest(quest, title) {
-    let auxQuests = quests;
-    const editedQuest = {
-      id: quest.id,
-      title: title || quest.title,
-      status: quest.status,
-      created_at: quest.created_at,
-    };
-
-    const findQuestPosition = auxQuests.findIndex(
-      (quest) => quest.id === editedQuest.id
-    );
-
-    auxQuests.splice(findQuestPosition, 1, editedQuest);
-
-    localStorage.setItem("quests", JSON.stringify(auxQuests));
-
-    getQuests();
-  }
-
-  function saveConcludedQuest(quest) {
-    let auxQuests = quests;
-    const editedQuest = {
-      id: quest.id,
-      title: quest.title,
-      status: "concluído",
-      created_at: quest.created_at,
-    };
-
-    const findQuestPosition = auxQuests.findIndex(
-      (quest) => quest.id === editedQuest.id
-    );
-
-    auxQuests.splice(findQuestPosition, 1, editedQuest);
-
-    localStorage.setItem("quests", JSON.stringify(auxQuests));
-
-    getQuests();
-  }
-
   function saveAddQuest(title) {
     let auxQuests = quests;
     let id = 0;
