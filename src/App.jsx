@@ -6,13 +6,6 @@ function App() {
   const localQuests = JSON.parse(window.localStorage.getItem("quests")) || [];
   const [quests, setQuests] = useState(localQuests);
 
-<<<<<<< HEAD
-  const concludedQuests = quests.filter(
-    (quest) => quest.status === "concluído"
-  );
-  const notConcludedQuests = quests.filter(
-    (quest) => quest.status === "aberto"
-  );
 
   function saveEditQuest(quest, title) {
     let auxQuests = quests;
@@ -63,8 +56,11 @@ function App() {
 
 
   function getQuests() {
-    setQuests(JSON.parse(window.localStorage.getItem("quests")));
+    setQuests(JSON.parse(window.localStorage.getItem("quests")))
   }
+
+  const concludedQuests = quests.filter((quest) => quest.status === "concluído")
+  const notConcludedQuests = quests.filter((quest) => quest.status === "aberto")
 
   return (
     <div className="flex h-screen justify-center items-center bg-slate-800">
@@ -96,8 +92,4 @@ function App() {
   );
 }
 
-<<<<<<< HEAD
 export default App;
-=======
-export default App;
->>>>>>> d38f8b14082b3ba5d82c9e50fd95a6995aa89bba
