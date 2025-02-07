@@ -6,6 +6,7 @@ function App() {
   const localQuests = JSON.parse(window.localStorage.getItem("quests")) || [];
   const [quests, setQuests] = useState(localQuests);
 
+<<<<<<< HEAD
   const concludedQuests = quests.filter(
     (quest) => quest.status === "concluído"
   );
@@ -60,6 +61,7 @@ function App() {
     getQuests();
   }
 
+
   function getQuests() {
     setQuests(JSON.parse(window.localStorage.getItem("quests")));
   }
@@ -94,4 +96,8 @@ function App() {
   );
 }
 
+<<<<<<< HEAD
 export default App;
+=======
+export default App;
+>>>>>>> d38f8b14082b3ba5d82c9e50fd95a6995aa89bba
